@@ -15,7 +15,7 @@
         body {
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
+            font-family: Verdana;
         }
 
         a,
@@ -76,7 +76,7 @@
             padding-bottom: 2vh;
             text-align: center;
             line-height: 25px;
-            font-size: 13px;
+            font-size: 15px;
             position: relative;
             z-index: 5;
         }
@@ -111,13 +111,13 @@
         }
 
         .light {
-            color: #444;
-            background-color: #fafafa;
+            color: #D36135;
+            background-color: #000000;
         }
 
         .dark {
-            color: #fafafa;
-            background-color: #444;
+            color: #000000;
+            background-color: #D36135;
         }
 
         .step {
@@ -133,7 +133,7 @@
         .step div {
             padding: 25px 50px;
             line-height: 25px;
-            font-size: 13px;
+            font-size: 20px;
         }
 
         .step img {
@@ -312,7 +312,7 @@
         if (config.inset) {
             var insetMap = new mapboxgl.Map({
                 container: 'mapInset', // container id
-                style: 'mapbox://styles/mapbox/dark-v10', //hosted style id
+                style: 'mapbox://styles/mapbox/satellite-v9', //hosted style id
                 center: config.chapters[0].location.center,
                 // Hardcode above center value if you want insetMap to be static.
                 zoom: 3, // starting zoom
@@ -367,7 +367,7 @@
                     'source': 'bikeandtrucks',
                     'layout': {},
                     'paint': {
-                        'line-color': '#fd7702',
+                        'line-color': '#D36135',
                         'line-width': 3
                     }
                 },);
@@ -399,7 +399,7 @@
                             insetMap.flyTo({ center: chapter.location.center, zoom: 0 });
                         }
                         else {
-                            insetMap.flyTo({ center: chapter.location.center, zoom: 3 });
+                            insetMap.flyTo({ center: chapter.location.center, zoom: 8.5 });
                         }
                     }
                     if (config.showMarkers) {
