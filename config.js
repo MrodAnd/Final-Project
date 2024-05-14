@@ -13,7 +13,7 @@ var config = {
     title: 'Unprotected Bike Paths on Truck Routes in NYC',
     subtitle: 'Truck routes can be dangerous places for bikers. However, truck routes are essential for the city and allow for the movement of goods. Often times, GPS apps direct cyclists to use truck route streets that have unprotected bike lanes or "sharrows."',
     byline: 'By Marcos Rodriguez Anderson',
-    footer: 'Source: source citations, etc. <br> Created using <a href="https://github.com/MrodAnd/Final-Project" target="_blank">Mapbox Storytelling</a> template.',
+    footer: '<br> Created using a Mapbox Storytelling template. <a href="https://github.com/MrodAnd/Final-Project" target="_blank"> Sources </a>',
     chapters: [
         {
             id: 'slug-style-id',
