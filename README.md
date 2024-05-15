@@ -16,6 +16,9 @@ Many accidents occur on "sharrows” which are road markings indicating that car
 <b>GPS apps should classify truck routes with unprotected bike lanes as a separate road category. GPS apps then could program cyclist trips to avoid truck routes that do not have protected bike infrastructure.</b>
 
 ## Sources
+
+<b>This map was made using the Mapbox Story Telling Template.</b>
+
 Mapbox Story Telling Template: https://github.com/mapbox/storytelling
 https://www.nyc.gov/html/dot/downloads/pdf/nycdot-protected-bike-lanes-current.pdf
 https://www.google.com/maps
