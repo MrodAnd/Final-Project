@@ -1,3 +1,4 @@
+//Mapbox template JS for the story
 var initLoad = true;
 var layerTypes = {
     'fill': ['fill-opacity'],
@@ -139,20 +140,16 @@ var map = new mapboxgl.Map({
     projection: config.projection
 });
 
-// Create a inset map if enabled in config.js
+// Inset map info
 if (config.inset) {
     var insetMap = new mapboxgl.Map({
         container: 'mapInset', // container id
-        style: 'mapbox://styles/mapbox/satellite-v9', //hosted style id
+        style: 'mapbox://styles/mapbox/satellite-streets-v12',
         center: config.chapters[0].location.center,
-        // Hardcode above center value if you want insetMap to be static.
-        zoom: 3, // starting zoom
+        zoom: 3,
         hash: false,
         interactive: false,
         attributionControl: false,
-        //Future: Once official mapbox-gl-js has globe view enabled,
-        //insetmap can be a globe with the following parameter.
-        //projection: 'globe'
     });
 }
 
@@ -173,10 +170,8 @@ map.on("load", function () {
             'tileSize': 512,
             'maxzoom': 14
         });
-        // add the DEM source as a terrain layer with exaggerated height
         map.setTerrain({ 'source': 'mapbox-dem', 'exaggeration': 1.5 });
 
-        // add a sky layer that will show when the map is highly pitched
         map.addLayer({
             'id': 'sky',
             'type': 'sky',
@@ -186,13 +181,12 @@ map.on("load", function () {
                 'sky-atmosphere-sun-intensity': 15
             }
         });
-
+        // Trucks Layer info
         map.addSource('trucks', {
             "type": "geojson",
             "data": "data/trucks.geojson"
         })
 
-        // bike and trucks line
         map.addLayer({
             'id': 'trucks',
             'type': 'line',
@@ -223,6 +217,16 @@ map.on("load", function () {
                 }
             }
         },);
+        map.addLayer({
+            'id': 'bnyc-buffer-mask',
+            'type': 'fill',
+            'source': 'nyc-buffer-mask', 
+            'layout': {},
+            'paint': {
+                'fill-color': '#fff', 
+                'fill-opacity': .2
+            }
+        });
         map.addSource('bikeandtrucks', {
             "type": "geojson",
             "data": "data/bikeandtrucks.geojson"
@@ -241,6 +245,7 @@ map.on("load", function () {
                 }
             }
         },);
+        // blue 3d buildings
         map.addLayer(
             {
                 'id': 'add-3d-buildings',
@@ -275,9 +280,6 @@ map.on("load", function () {
             response.element.classList.add('active');
             map[chapter.mapAnimation || 'flyTo'](chapter.location);
 
-            // Incase you do not want to have a dynamic inset map,
-            // rather want to keep it a static view but still change the
-            // bbox as main map move: comment out the below if section.
             if (config.inset) {
                 if (chapter.location.zoom < 5) {
                     insetMap.flyTo({ center: chapter.location.center, zoom: 0 });
@@ -373,7 +375,7 @@ function getInsetBounds() {
     }
 
 }
-
+// inset map details
 function addInsetLayer(bounds) {
     insetMap.addSource('boundsSource', {
         'type': 'geojson',
@@ -383,14 +385,14 @@ function addInsetLayer(bounds) {
     insetMap.addLayer({
         'id': 'boundsLayer',
         'type': 'fill',
-        'source': 'boundsSource', // reference the data source
+        'source': 'boundsSource', 
         'layout': {},
         'paint': {
-            'fill-color': '#fff', // blue color fill
-            'fill-opacity': 0.2
+            'fill-color': '#fff', 
+            'fill-opacity': .2
         }
     });
-    // // Add a black outline around the polygon.
+    //  black outline 
     insetMap.addLayer({
         'id': 'outlineLayer',
         'type': 'line',
