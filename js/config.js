@@ -10,7 +10,7 @@ const config = {
     theme: 'dark',
     use3dTerrain: true, //set true for enabling 3D maps.
     auto: false,
-    title: 'Truck Routes and Biked Marked Streets in NYC',
+    title: 'Truck Routes and Bike Marked Streets',
     subtitle: 'Truck routes can be dangerous places for cyclists. However, truck routes are essential for the city and allow for the movement of goods. Oftentimes, GPS apps direct cyclists to use truck routes that have unprotected bike lanes or "sharrows."',
     byline: 'By Marcos Rodriguez Anderson',
     footer: '<br> Created using a Mapbox Storytelling template. <a href="https://github.com/MrodAnd/Final-Project" target="_blank"> Sources </a>',
