@@ -1,5 +1,5 @@
-var config = {
-    style: 'mapbox://styles/mapbox/satellite-v9',
+const config = {
+    style: 'mapbox://styles/mapbox/dark-v11',
     accessToken: 'pk.eyJ1IjoibXJvZGEiLCJhIjoiY2x1dHl3cXM5MDRmZTJscDZuczk1MGR0MyJ9.b4OLZlubx4b5Hc19pGZRpQ',
     showMarkers: true,
     markerColor: '#3FB1CE',
@@ -16,7 +16,7 @@ var config = {
     footer: '<br> Created using a Mapbox Storytelling template. <a href="https://github.com/MrodAnd/Final-Project" target="_blank"> Sources </a>',
     chapters: [
         {
-            id: 'slug-style-id',
+            id: 'first-identifier',
             alignment: 'left',
             hidden: false,
             title: 'Trucks Routes are Essential',
@@ -24,7 +24,7 @@ var config = {
             description: 'Truck Routes are necessary for the city. Nevertheless, over 50% of fatal bike and pedestrian crashes happened on truck routes even though they make up just 13% of city roads.',
             location: {
                 center: [-73.98486, 40.74901],
-                zoom: 8.5,
+                zoom: 10.2,
                 pitch: 2,
                 bearing: 0
             },
@@ -33,17 +33,17 @@ var config = {
             callback: '',
 
             onChapterEnter: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 1,
-                //     duration: 5000
-                // }
+                {
+                    layer: 'data/bikeandtrucks.geojson',
+                    opacity: 100,
+                    duration: 5000
+                }
             ],
             onChapterExit: [
-                // {
-                //     layer: 'layer-name',
-                //     opacity: 0
-                // }
+                {
+                    id: 'data/bikeandtrucks.geojson',
+                    opacity: 0
+                }
             ]
         },
         {
@@ -54,7 +54,7 @@ var config = {
             image: 'images/protectlane.jpg',
             description: 'Some streets have both truck routes and bike lanes which are shown by the orange line. Truck routes that have protected bike lanes are not dangerous for cyclists. However, truck routes that share streets with unprotected bike lanes and sharrows tell a different story.',
             location: {
-                center: [-73.91737, 40.71908],
+                center: [-73.94979, 40.71113],
                 zoom: 12.5,
                 pitch: 30,
                 bearing: -43.2,
@@ -89,6 +89,7 @@ var config = {
             callback: '',
             onChapterEnter: [],
             onChapterExit: []
+
         },
         {
             id: 'fourth-chapter',
