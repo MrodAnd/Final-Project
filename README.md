@@ -26,3 +26,5 @@ https://www.nytimes.com/2024/03/05/nyregion/nyc-cyclist-deaths-ebike.html
 https://brooklyneagle.com/articles/2023/11/16/dump-truck-hits-cyclist-in-downtown-brooklyn-1-in-critical-condition/
 https://www.nyc.gov/html/dot/html/motorist/truckrouting.shtml
 https://road.cc/content/news/google-maps-makes-major-update-cycling-navigation-294745
+
+<b>Truck route and bike path layers included</b>
