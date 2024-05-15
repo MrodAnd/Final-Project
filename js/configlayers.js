@@ -186,16 +186,17 @@ map.on("load", function () {
                 'sky-atmosphere-sun-intensity': 15
             }
         });
-        map.addSource('bikeandtrucks', {
+
+        map.addSource('trucks', {
             "type": "geojson",
-            "data": "data/bikeandtrucks.geojson"
+            "data": "data/trucks.geojson"
         })
 
         // bike and trucks line
         map.addLayer({
-            'id': 'bikeandtrucks',
+            'id': 'trucks',
             'type': 'line',
-            'source': 'bikeandtrucks',
+            'source': 'trucks',
             'layout': {},
             'paint': {
                 'line-color': '#D36135',
@@ -209,7 +210,7 @@ map.on("load", function () {
             "data": "data/nyc-buffer-mask.geojson"
         })
 
-        // bike and trucks line
+        // nyc buffer
         map.addLayer({
             'id': 'nyc-buffer-mask',
             'type': 'line',
@@ -222,6 +223,38 @@ map.on("load", function () {
                 }
             }
         },);
+        map.addSource('bikeandtrucks', {
+            "type": "geojson",
+            "data": "data/bikeandtrucks.geojson"
+        })
+
+        // bike and trucks line
+        map.addLayer({
+            'id': 'bikeandtrucks',
+            'type': 'line',
+            'source': 'bikeandtrucks',
+            'layout': {},
+            'paint': {
+                'line-color': '#EEF4ED',
+                'line-width': {
+                    stops: [[10.5, 1], [14, 4]]
+                }
+            }
+        },);
+        map.addLayer(
+            {
+                'id': 'add-3d-buildings',
+                'source': 'composite',
+                'source-layer': 'building',
+                'filter': ['==', 'extrude', 'true'],
+                'type': 'fill-extrusion',
+                'minzoom': 8,
+                'paint': {
+                    'fill-extrusion-color': '#4169e1',
+                }
+
+            })
+
     };
 
     // As the map moves, grab and update bounds in inset map.
